@@ -29,7 +29,7 @@ const sortStarWarsCharacters = (starWarsArr) => {
     return b.height - a.height;
   });
 };
-console.log(sortStarWarsCharacters(starWarsPeople));
+// console.log(sortStarWarsCharacters(starWarsPeople));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -183,7 +183,7 @@ const listFoods = (recipe) => {
   return result;
 };
 
-console.log(listFoods(gruffaloCrumble));
+// console.log(listFoods(gruffaloCrumble));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
@@ -194,9 +194,14 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < recipe.length; i++) {
+    let splitItem = recipe.split(" ");
+    result.push(splitItem)
+  }
   return result;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -210,10 +215,14 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  // console.log('recipe steps =',recipe.steps);
+  for (let i = 0; i < recipe.steps.length; i++) {
+    let item = recipe.steps[i].split(" ")
+    console.log('item =',item);
+    result.push(item[0]);
+  }
   return result;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -404,7 +413,7 @@ xdescribe("Testing challenge 7", () => {
   });
 });
 
-xdescribe("Testing challenge 8", () => {
+describe("Testing challenge 8", () => {
   test("It should return a list of recipe steps", () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual([
       "Pre-heat",
